@@ -30,15 +30,31 @@ export class InputGameStartComponent implements OnInit {
 
 	onSubmit(): void {
 		this.submitted = true;
+		const gameCode: string = this.gameStartForm?.value?.game_code;
+		const uri = '/game/' + gameCode ?? '';
+
+		// if(gameCode) {
+		this.http.post(uri, {}).subscribe((data: any) => {
+			let path = data._id;
+			this.router.navigate([path]);
+		});
+
+		console.log(this.gameStartForm.value);
+		this.registered = true;
+		// } else {
+			// this.http.post('/game', {}).subscribe((data: any) => {
+
+			// })
+		// }
 
 		// if(this.gameStartForm.invalid === true) {
 			// return
 		// } else {
 			// if(this.gameStartForm.value) {
-				console.log(this.gameStartForm.value)
+				
 			// }
 
-			this.registered = true;
+			
 		// }
 	}
 

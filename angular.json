@@ -63,7 +63,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "battleshots-client:build"
+            "browserTarget": "battleshots-client:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
